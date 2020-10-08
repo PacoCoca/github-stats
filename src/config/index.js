@@ -1,7 +1,3 @@
-import dotenv from 'dotenv';
-
-dotenv.config();
-
 export default {
-  
+  ghToken: process.env.REACT_APP_GH_TOKEN,
 }

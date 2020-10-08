@@ -1,0 +1,30 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.85);
+}
+
+.child {
+  width: 90%;
+  margin: 10px;
+}
+
+.buttonContainer {
+  padding: 5vh;
+  display: flex;
+  justify-content: center;
+}

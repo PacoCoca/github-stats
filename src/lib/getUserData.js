@@ -8,6 +8,7 @@ export default async function getUserData(username) {
   const body = {
     'query': `query {
       user(login: "${username}") {
+        login
         name
         createdAt
       }

@@ -12,12 +12,12 @@ function Home(props) {
   const [searchText, setSearchText] = useState('');
 
   async function search() {
-    const response = await lib.getUserData(searchText);
-    if (response.errors) {
+    const user = await lib.getUserData(searchText);
+    if (!user) {
       // TODO: show some error msg
       console.error('not found');
     } else {
-      history.push('/stats', response.data);
+      history.push('/stats', user);
     }
   }
 

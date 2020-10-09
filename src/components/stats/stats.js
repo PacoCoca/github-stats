@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { CircularProgress } from '@material-ui/core';
+import { CircularProgress, Divider } from '@material-ui/core';
 import styles from './stats.module.css';
 import lib from '../../lib';
 import { useWindowDimensions } from '../../hooks';
 import Overview from '../overview/overview.js';
+import Profile from '../profile/profile.js';
 
 function Stats(props) {
   const history = useHistory();
@@ -41,8 +42,11 @@ function Stats(props) {
       </div>
     );
   }
+  console.log(user)
   return (
     <div className={styles.container}>
+      <Profile user={user} />
+      <Divider className={styles.divider} />
       <Overview contributions={contributions} />
     </div>
   );

@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+}
+
+.avatar {
+  width: 25vw !important;
+  height: 25vw !important;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  padding-left: 32px;
+}

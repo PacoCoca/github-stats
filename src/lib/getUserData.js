@@ -11,6 +11,7 @@ export default async function getUserData(username) {
         login
         name
         createdAt
+        avatarUrl
       }
     }`
   };
@@ -23,5 +24,5 @@ export default async function getUserData(username) {
     }
   );
   const data = await response.json();
-  return data;
+  return (data.errors) ? false : data.data;
 };

@@ -5,6 +5,7 @@ import totalCount from './totalCount.js';
 import avgCount from './avgCount.js';
 import longestStreak from './longestStreak.js';
 import groupDMY from './groupDMY.js';
+import monthName from './monthName.js';
 
 export default {
   getContributions,
@@ -14,4 +15,5 @@ export default {
   avgCount,
   longestStreak,
   groupDMY,
+  monthName,
 };

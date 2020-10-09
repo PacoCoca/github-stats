@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from '@material-ui/core/styles'
-import { createMuiTheme } from '@material-ui/core'
+import { createMuiTheme, CssBaseline } from '@material-ui/core'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from './components/home/home.js';
 import Stats from './components/stats/stats.js';
@@ -23,6 +23,7 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <BrowserRouter>
         <Switch>
           <Route path='/stats'>

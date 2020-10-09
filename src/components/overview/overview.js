@@ -5,10 +5,10 @@ import { Typography } from '@material-ui/core';
 function Overview(props) {
   const { perYear, perMonth, perDay } = props;
 
-  const maxYear = lib.getMaxCount(perYear);
-  const maxMonth = lib.getMaxCount(perMonth);
-  const maxDay = lib.getMaxCount(perDay);
-  const longestStreak = lib.getLongestStreak(perDay);
+  const maxYear = lib.maxCount(perYear);
+  const maxMonth = lib.maxCount(perMonth);
+  const maxDay = lib.maxCount(perDay);
+  const longestStreak = lib.longestStreak(perDay);
 
   return (
     <>

@@ -1,4 +1,4 @@
-export default function getLongestStreak(contributions = []) {
+export default function longestStreak(contributions = []) {
   let longest = { days: 0 };
   let current = { start: contributions[0].date, days: 0 };
 

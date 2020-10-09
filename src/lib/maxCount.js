@@ -1,4 +1,4 @@
-export default function getMaxCount(array = []) {
+export default function maxCount(array = []) {
   const max = array.reduce((prev, curr) => {
     return (prev.count > curr.count) ? prev : curr;
   });

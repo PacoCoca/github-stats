@@ -7,6 +7,7 @@ import { useWindowDimensions } from '../../hooks';
 import Overview from '../overview/overview.js';
 import Profile from '../profile/profile.js';
 import MyAppBar from '../myAppBar/myAppBar.js';
+import YearGraph from '../yearGraph/yearGraph.js';
 
 function Stats(props) {
   const history = useHistory();
@@ -70,6 +71,8 @@ function Stats(props) {
       <Profile user={user} />
       <Divider className={styles.divider} />
       <Overview perYear={perYear} perMonth={perMonth} perDay={perDay} />
+      <Divider className={styles.divider} />
+      <YearGraph perYear={perYear} />
     </div>
   );
 }

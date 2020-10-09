@@ -1,13 +1,17 @@
 import getContributions from './getContributions.js';
 import getUserData from './getUserData.js';
-import getMaxCount from './getMaxCount.js';
-import getLongestStreak from './getLongestStreak.js';
+import maxCount from './maxCount.js';
+import totalCount from './totalCount.js';
+import avgCount from './avgCount.js';
+import longestStreak from './longestStreak.js';
 import groupDMY from './groupDMY.js';
 
 export default {
   getContributions,
   getUserData,
-  getMaxCount,
-  getLongestStreak,
+  maxCount,
+  totalCount,
+  avgCount,
+  longestStreak,
   groupDMY,
 };

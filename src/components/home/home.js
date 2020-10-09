@@ -26,8 +26,8 @@ function Home(props) {
   }
 
   function handleSubmit(event) {
-    search();
     event.preventDefault();
+    search();
   }
 
   return (

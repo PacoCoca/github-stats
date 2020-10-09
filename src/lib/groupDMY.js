@@ -1,9 +1,13 @@
-export default function getMax(contributions) {
-  let maxDay = contributions[0];
-  let maxMonth = { count: 0 };
-  let maxYear = { count: 0 };
+export default function groupDMY(contributions = []) {
+  if (contributions.length === 0) {
+    return {
+      perDay: [],
+      perMonth: [],
+      perYear: []
+    };
+  }
+  const perMonth = [], perYear = [];
   let currentMonth, currentYear;
-
   const [year, month,] = contributions[0].date.split('-');
   currentMonth = {
     date: `${year}-${month}`,
@@ -17,16 +21,10 @@ export default function getMax(contributions) {
   for (const contribution of contributions) {
     const [year, month,] = contribution.date.split('-');
 
-    if (contribution.count > maxDay.count) {
-      maxDay = contribution;
-    }
-
     if (`${year}-${month}` === currentMonth.date) {
       currentMonth.count += contribution.count;
     } else {
-      if (currentMonth.count > maxMonth.count) {
-        maxMonth = currentMonth;
-      }
+      perMonth.push(currentMonth);
       currentMonth = {
         date: `${year}-${month}`,
         count: 0
@@ -36,19 +34,19 @@ export default function getMax(contributions) {
     if (year === currentYear.date) {
       currentYear.count += contribution.count;
     } else {
-      if (currentYear.count > maxYear.count) {
-        maxYear = currentYear;
-      }
+      perYear.push(currentYear);
       currentYear = {
         date: year,
         count: 0
       };
     }
   }
+  perMonth.push(currentMonth);
+  perYear.push(currentYear);
 
   return {
-    maxDay: maxDay,
-    maxMonth: maxMonth,
-    maxYear: maxYear
+    perDay: contributions,
+    perMonth: perMonth,
+    perYear: perYear
   };
 };

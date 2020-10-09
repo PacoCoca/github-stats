@@ -15,6 +15,14 @@ function Stats(props) {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
 
+  let perYear = [], perMonth = [], perDay = [];
+  if (contributions) {
+    const grouped = lib.groupDMY(contributions);
+    perYear = grouped.perYear;
+    perMonth = grouped.perMonth;
+    perDay = grouped.perDay;
+  }
+
   useEffect(() => {
     if (history.location.state) {
       setUser(history.location.state.user);
@@ -36,7 +44,6 @@ function Stats(props) {
       fetchContributions();
     }
   }, [user]);
-
 
   async function handleSearch(searchText) {
     const userData = await lib.getUserData(searchText);
@@ -62,7 +69,7 @@ function Stats(props) {
       <Toolbar />
       <Profile user={user} />
       <Divider className={styles.divider} />
-      <Overview contributions={contributions} />
+      <Overview perYear={perYear} perMonth={perMonth} perDay={perDay} />
     </div>
   );
 }

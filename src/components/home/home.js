@@ -17,9 +17,7 @@ function Home(props) {
       // TODO: show some error msg
       console.error('not found');
     } else {
-      // TODO: store the response with redux
-      console.log(response);
-      history.push('/stats');
+      history.push('/stats', response.data);
     }
   }
 

@@ -1,4 +1,18 @@
+.container {
+  display: flex;
+  justify-content: space-between !important;
+}
+
 .logo {
   height: 40px;
   margin-left: 16px;
+}
+
+.toggleTheme {
+  margin-left: 16px !important;
+}
+
+.rightSide {
+  display: flex;
+  align-items: center;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
@@ -8,33 +8,61 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from './components/home/home.js';
 import Stats from './components/stats/stats.js';
 
-const theme = createMuiTheme({
-  palette: {
-    type: 'dark',
-    primary: {
-      main: '#8ab0ab',
+function App(props) {
+  const dark = {
+    palette: {
+      type: 'dark',
+      primary: {
+        main: '#8ab0ab',
+        contrastText: '#fff'
+      },
+      secondary: {
+        main: '#26413C',
+      },
+      backgroundOpacity: 'rgba(0,0,0,0.6)',
     },
-    secondary: {
-      main: '#26413C',
-    }
-  },
-});
+  };
+  const light = {
+    palette: {
+      type: 'light',
+      primary: {
+        main: '#315450',
+        contrastText: '#000'
+      },
+      secondary: {
+        main: '#001b16',
+      },
+      backgroundOpacity: 'rgba(255,255,255,0.6)',
+    },
+  };
 
-ReactDOM.render(
-  <React.StrictMode>
+  const [darkThemeSelected, setDarkThemeSelected] = useState(false);
+  const theme = createMuiTheme(darkThemeSelected? light: dark);
+
+  function toggleTheme() {
+    setDarkThemeSelected(!darkThemeSelected);
+  }
+
+  return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
         <Switch>
           <Route path='/stats'>
-            <Stats />
+            <Stats toggleTheme={toggleTheme} />
           </Route>
           <Route path='/'>
-            <Home />
+            <Home toggleTheme={toggleTheme} />
           </Route>
         </Switch>
       </BrowserRouter>
     </ThemeProvider>
+  );
+}
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

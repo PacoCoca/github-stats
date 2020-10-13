@@ -67,7 +67,7 @@ function Stats(props) {
   }
   return (
     <div className={styles.container}>
-      <MyAppBar onSearch={handleSearch} />
+      <MyAppBar onSearch={handleSearch} toggleTheme={props.toggleTheme} />
       <Toolbar />
       <Profile user={user} />
       <Divider className={styles.divider} />

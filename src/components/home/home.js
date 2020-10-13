@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import SearchBar from '../searchBar/searchBar.js';
 import images from '../../images';
 import styles from './home.module.css';
-import { Button } from '@material-ui/core';
+import { Button, useTheme, Toolbar } from '@material-ui/core';
 import lib from '../../lib';
 import { useHistory } from 'react-router-dom';
+import MyAppBar from '../myAppBar/myAppBar.js';
 
 function Home(props) {
   const history = useHistory();
+  const theme = useTheme();
 
   const [searchText, setSearchText] = useState('');
 
@@ -35,6 +37,12 @@ function Home(props) {
       style={{ backgroundImage: `url(${images.backgroundHome})` }}
       className={styles.container}
     >
+      <div
+        style={{ backgroundColor: theme.palette.backgroundOpacity }}
+        className={styles.opacity}
+      />
+      <MyAppBar toggleTheme={props.toggleTheme} />
+      <Toolbar />
       <div className={styles.child}>
         <form onSubmit={handleSubmit}>
           <SearchBar value={searchText} onChange={handleChangeText} />

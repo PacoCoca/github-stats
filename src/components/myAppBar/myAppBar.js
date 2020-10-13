@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
 import SearchBar from '../searchBar/searchBar.js';
 import { useTheme } from '@material-ui/core/styles';
 import images from '../../images/index.js';
 import styles from './myAppBar.module.css';
+import { Brightness7, Brightness4 } from '@material-ui/icons';
 
 function MyAppBar(props) {
-  const { onSearch } = props;
+  const { onSearch, toggleTheme } = props;
 
   const theme = useTheme();
   const [searchText, setSearchText] = useState('');
@@ -21,12 +22,35 @@ function MyAppBar(props) {
   }
 
   return (
-    <AppBar position='fixed' style={{ backgroundColor: theme.palette.background.default }} >
-      <Toolbar >
-        <form onSubmit={handleSubmit} className='fullWidth'>
-          <SearchBar value={searchText} onChange={handleChangeText} />
-        </form>
-        <img src={images.logo} className={styles.logo}/>
+    <AppBar
+      position='fixed'
+      style={{ backgroundColor: theme.palette.background.default }}
+    >
+      <Toolbar className={styles.container}>
+        <Typography variant='h4' color={theme.palette.text.primary} >
+          GitHub Stats
+        </Typography>
+        <div className={styles.rightSide}>
+          {
+            onSearch &&
+            <form onSubmit={handleSubmit}>
+              <SearchBar value={searchText} onChange={handleChangeText} />
+            </form>
+          }
+          <IconButton
+            className={styles.toggleTheme}
+            color='primary'
+            aria-label='Toggle light/dark theme'
+            onClick={toggleTheme}
+          >
+            {
+              theme.palette.type === 'light' ?
+                <Brightness4 /> :
+                <Brightness7 />
+            }
+          </IconButton>
+          <img src={images.logo} className={styles.logo} />
+        </div>
       </Toolbar>
     </AppBar >
   );

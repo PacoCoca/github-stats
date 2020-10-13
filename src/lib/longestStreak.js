@@ -1,3 +1,8 @@
+/**
+ * Given an array of contributions, returns the length of the longest succession of elements 
+ * with count>0 and the start of said succession
+ * @param contributions An array with form `[{date, count, ...}, ...]` 
+ */
 export default function longestStreak(contributions = []) {
   let longest = { days: 0 };
   let current = { start: contributions[0].date, days: 0 };

@@ -1,6 +1,10 @@
 import fetch from 'node-fetch';
 import config from '../config';
 
+/**
+ * Returns an object with profile data about an user
+ * @param username The username of which we want to know the data
+ */
 export default async function getUserData(username) {
   const headers = {
     'Authorization': `bearer ${config.ghToken}`,

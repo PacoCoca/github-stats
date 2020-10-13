@@ -1,3 +1,8 @@
+/**
+ * Given an array of contributions,
+ * returns an object adding the count property per day, month and year
+ * @param contributions An array with form `[{date, count, ...}, ...]` 
+ */
 export default function groupDMY(contributions = []) {
   if (contributions.length === 0) {
     return {

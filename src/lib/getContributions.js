@@ -1,6 +1,13 @@
 import fetch from 'node-fetch';
 import config from '../config';
 
+/**
+ * Returns an array with the data about the contributions of an user
+ * This function uses the GraphQl GitHub API
+ * @param username The username of which we want to know the contributions
+ * @param from The datetime from which contributions will be retrieved
+ * @param to The datetime until which contributions will be retrieved
+ */
 async function getContributionsInterval({ username, from, to }) {
   const headers = {
     'Authorization': `bearer ${config.ghToken}`,
@@ -33,6 +40,11 @@ async function getContributionsInterval({ username, from, to }) {
   return data;
 };
 
+/**
+ * Returns an array with the data about the contributions of an user
+ * @param username The username of which we want to know the contributions
+ * @param creationYear The year from which contributions will be retrieved
+ */
 async function getContributions({ username, creationYear }) {
   const today = new Date();
   const contributions = [];

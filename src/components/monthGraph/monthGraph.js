@@ -14,7 +14,7 @@ function MonthGraph(props) {
   });
 
   const [year, setYear] = useState(new Date().getFullYear());
-  const [selectedMonths, setSelectedMonths] = useState(0);
+  const [selectedMonths, setSelectedMonths] = useState([]);
 
   useEffect(() => {
     const filtered = perMonth.filter(cont => cont.date.includes(year));
@@ -23,7 +23,7 @@ function MonthGraph(props) {
       cont.avg = avg;
     });
     setSelectedMonths(filtered);
-  }, [year]);
+  }, [year, perMonth]);
 
   function renderBarLabel({ x, y, width, value }) {
     return (
@@ -64,7 +64,7 @@ function MonthGraph(props) {
 
   const selectOptions = [];
   for (let year = parseInt(perMonth[0].date.split('-')[0]); year <= new Date().getFullYear(); year++) {
-    selectOptions.push(<MenuItem value={year}>{year}</MenuItem>);
+    selectOptions.push(<MenuItem key={year} value={year}>{year}</MenuItem>);
   }
   return (
     <>

@@ -27,7 +27,7 @@ function MyAppBar(props) {
       style={{ backgroundColor: theme.palette.background.default }}
     >
       <Toolbar className={styles.container}>
-        <Typography variant='h4' color={theme.palette.text.primary} >
+        <Typography variant='h4' >
           GitHub Stats
         </Typography>
         <div className={styles.rightSide}>
@@ -49,7 +49,7 @@ function MyAppBar(props) {
                 <Brightness7 />
             }
           </IconButton>
-          <img src={images.logo} className={styles.logo} />
+          <img src={images.logo} className={styles.logo} alt='logo' />
         </div>
       </Toolbar>
     </AppBar >
